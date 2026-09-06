@@ -16,6 +16,12 @@
     "astro": "^7.3.1",
     "tailwindcss": "^4.3.3"
   },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "@tailwindcss/oxide"
+    ]
+  },
   "allowScripts": {
     "esbuild": true
   },
