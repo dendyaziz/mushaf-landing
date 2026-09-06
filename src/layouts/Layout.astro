@@ -3,9 +3,13 @@ import '../styles/global.css';
 
 interface Props {
   title?: string;
+  description?: string;
 }
 
-const { title = 'Mushaf - Quran Indonesia' } = Astro.props;
+const {
+  title = 'Mushaf - Quran Indonesia',
+  description = 'Aplikasi Al-Quran digital rasm Usmani standar Kemenag RI dengan tajwid berwarna, fitur lanjut baca otomatis, dan 100% akses offline tanpa kuota.'
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -16,9 +20,26 @@ const { title = 'Mushaf - Quran Indonesia' } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
+
+    <!-- SEO & Metadata -->
     <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#059669" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://mushaf.web.id" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Google Fonts: Plus Jakarta Sans & Amiri Quran -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body class="min-h-screen bg-slate-50 text-slate-900 antialiased dark:bg-slate-950 dark:text-slate-100">
+  <body class="min-h-screen bg-[#fafaf7] text-slate-900 antialiased selection:bg-emerald-100 selection:text-emerald-900 dark:bg-[#08130e] dark:text-slate-100 dark:selection:bg-emerald-900 dark:selection:text-emerald-200">
     <slot />
   </body>
 </html>
