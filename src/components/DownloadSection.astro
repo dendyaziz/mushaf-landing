@@ -1,62 +1,65 @@
 ---
 ---
 
-<section id="unduh" class="relative scroll-mt-20 py-16 sm:py-24">
-  <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-    <div class="relative overflow-hidden rounded-[36px] bg-gradient-to-br from-emerald-800 via-emerald-900 to-slate-950 px-6 py-16 text-center text-white shadow-2xl shadow-emerald-950/20 sm:px-12 sm:py-20">
-      <!-- Decorative Islamic-inspired background ambient shapes -->
-      <div class="pointer-events-none absolute -top-24 -right-24 h-96 w-96 rounded-full bg-emerald-500/20 blur-3xl"></div>
-      <div class="pointer-events-none absolute -bottom-24 -left-24 h-96 w-96 rounded-full bg-teal-500/20 blur-3xl"></div>
+<section id="unduh" class="relative scroll-mt-20 py-20 lg:py-28">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="relative overflow-hidden rounded-[40px] bg-gradient-to-br from-emerald-900 via-emerald-950 to-slate-950 px-8 py-16 text-center text-white shadow-2xl shadow-emerald-950/20 sm:px-16 sm:py-24">
+      <!-- Subtle ambient glowing orbs -->
+      <div class="pointer-events-none absolute -top-32 -right-32 h-[450px] w-[450px] rounded-full bg-emerald-500/20 blur-3xl"></div>
+      <div class="pointer-events-none absolute -bottom-32 -left-32 h-[450px] w-[450px] rounded-full bg-teal-500/20 blur-3xl"></div>
 
       <div class="relative z-10 mx-auto max-w-3xl">
-        <span class="inline-flex items-center gap-1.5 rounded-full border border-emerald-400/30 bg-emerald-500/20 px-3.5 py-1 text-xs font-semibold text-emerald-200">
-          Mulai Hari Ini
+        <span class="inline-flex items-center gap-1.5 rounded-full border border-emerald-400/30 bg-emerald-500/20 px-4 py-1.5 text-xs font-bold tracking-wide uppercase text-emerald-300">
+          Unduh Gratis
         </span>
 
-        <h2 class="mt-5 text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
-          Jadikan Tilawah Harian Anda Lebih Bermakna
+        <h2 class="mt-6 text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
+          Mulai Tilawah Tanpa Hambatan Sekarang Juga
         </h2>
 
-        <p class="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-emerald-100/90 sm:text-lg">
-          Unduh Mushaf secara gratis dan rasakan kenyamanan membaca Al-Qur'an digital yang ringan, tenang, dan selalu siap melanjutkan ayat Anda.
+        <p class="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-emerald-100/90 sm:text-lg">
+          Aplikasi ringan (~15 MB), cepat dibuka, dan 100% offline. Manfaatkan sela-sela waktu harian Anda untuk membaca Al-Qur'an dengan tenang dan lancar.
         </p>
 
-        <!-- Download Action Buttons -->
-        <div class="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <!-- Android Button (Primary) -->
+        <!-- Official Store Badges Container -->
+        <div class="mt-10 flex flex-wrap items-center justify-center gap-5 sm:gap-6">
+          <!-- Google Play Badge -->
           <a
             href="https://play.google.com/store/apps"
             target="_blank"
             rel="noopener noreferrer"
-            class="group inline-flex w-full items-center justify-center gap-3 rounded-2xl bg-white px-7 py-3.5 text-slate-900 shadow-lg transition-all hover:bg-emerald-50 hover:shadow-xl active:scale-[0.98] sm:w-auto"
+            class="group inline-flex transition-transform hover:scale-105 active:scale-98"
+            aria-label="Unduh di Google Play"
           >
-            <!-- Google Play Icon -->
-            <svg class="h-6 w-6 shrink-0 transition-transform group-hover:scale-110" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M3.609 1.814L13.792 12 3.61 22.186a1.94 1.94 0 0 1-.61-.954V2.768c.09-.377.305-.722.609-.954zm11.242 11.245l2.259 2.259-11.835 6.763 9.576-9.022zm0-2.118L5.275 1.919l11.835 6.763-2.259 2.259zm1.096 1.059l4.57 2.612c1.077.615 1.077 1.621 0 2.236l-4.57 2.611-2.527-2.527 2.527-2.932z" />
-            </svg>
-            <div class="flex flex-col text-left">
-              <span class="text-[10px] uppercase tracking-wider text-slate-500">Unduh Sekarang di</span>
-              <span class="text-base font-bold leading-tight">Google Play</span>
-            </div>
+            <img
+              src="/images/google-play-badge.svg"
+              alt="Temukan di Google Play"
+              class="h-14 w-auto drop-shadow-xl transition-all group-hover:drop-shadow-2xl"
+            />
           </a>
 
-          <!-- iOS Coming Soon Pill -->
-          <div class="inline-flex w-full items-center justify-center gap-3 rounded-2xl border border-white/20 bg-white/10 px-6 py-3 text-emerald-100 backdrop-blur-xs sm:w-auto">
-            <!-- Apple Icon -->
-            <svg class="h-6 w-6 shrink-0 text-emerald-200" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.38c.62-.75 1.04-1.8 0.93-2.85-.9.04-1.99.6-2.61 1.35-.55.63-.99 1.68-.86 2.7 1 .08 2.02-.51 2.54-1.2" />
-            </svg>
-            <div class="flex flex-col text-left">
-              <span class="text-[10px] text-emerald-200/80">App Store (iOS)</span>
-              <span class="text-xs font-semibold text-white">Segera Hadir</span>
+          <!-- App Store Badge with "Segera Hadir" -->
+          <div class="relative inline-flex items-center">
+            <div class="opacity-75 grayscale contrast-125 filter">
+              <img
+                src="/images/app-store-badge.svg"
+                alt="Download on the App Store"
+                class="h-14 w-auto drop-shadow-md"
+              />
             </div>
+            <span class="absolute -top-3 -right-3 rounded-full border border-amber-300 bg-amber-500 px-3 py-0.5 text-[10px] font-extrabold tracking-wider uppercase text-white shadow-md">
+              Segera Hadir
+            </span>
           </div>
         </div>
 
-        <!-- Footnote text -->
-        <p class="mt-6 text-xs text-emerald-200/60">
-          Ukuran aplikasi ringan • Kompatibel dengan Android 8.0 ke atas • Tanpa iklan yang mengganggu
-        </p>
+        <!-- Footnote details -->
+        <div class="mt-10 flex flex-wrap items-center justify-center gap-6 text-xs text-emerald-200/70 sm:gap-8">
+          <span>✓ Gratis Selamanya</span>
+          <span>✓ Tanpa Perlu Daftar Akun</span>
+          <span>✓ Tanpa Kuota Internet</span>
+          <span>✓ Kompatibel Android 8.0+</span>
+        </div>
       </div>
     </div>
   </div>

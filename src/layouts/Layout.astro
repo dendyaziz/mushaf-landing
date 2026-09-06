@@ -8,7 +8,7 @@ interface Props {
 
 const {
   title = 'Mushaf - Quran Indonesia',
-  description = 'Aplikasi Al-Quran digital rasm Usmani standar Kemenag RI dengan tajwid berwarna, fitur lanjut baca otomatis, dan 100% akses offline tanpa kuota.'
+  description = 'Aplikasi Al-Quran digital rasm Usmani standar Kemenag RI. Buka aplikasi langsung di ayat terakhir Anda, 100% offline tanpa kuota dan tanpa iklan.'
 } = Astro.props;
 ---
 
@@ -24,11 +24,12 @@ const {
     <!-- SEO & Metadata -->
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#059669" />
+    <meta name="theme-color" content="#047857" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://mushaf.web.id" />
+    <meta property="og:image" content="https://mushaf.web.id/images/mushaf-hero-mockup.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
 
     <!-- Google Fonts: Plus Jakarta Sans & Amiri Quran -->
@@ -39,7 +40,7 @@ const {
       rel="stylesheet"
     />
   </head>
-  <body class="min-h-screen bg-[#fafaf7] text-slate-900 antialiased selection:bg-emerald-100 selection:text-emerald-900 dark:bg-[#08130e] dark:text-slate-100 dark:selection:bg-emerald-900 dark:selection:text-emerald-200">
+  <body class="min-h-screen bg-[#fbfbfa] text-slate-900 antialiased">
     <slot />
   </body>
 </html>
