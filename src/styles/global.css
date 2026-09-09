@@ -1,9 +1,18 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+@font-face {
+  font-family: 'AllRoundGothic';
+  src: url('/fonts/AllRoundGothic-MediumOblique.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal, italic, oblique;
+  font-display: swap;
+}
+
 @theme {
   --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-arabic: 'Amiri Quran', 'Scheherazade New', serif;
+  --font-brand: 'AllRoundGothic', var(--font-sans);
 }
 
 html {
