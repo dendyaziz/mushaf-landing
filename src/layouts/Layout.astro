@@ -39,6 +39,46 @@ const {
       href="https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap"
       rel="stylesheet"
     />
+
+    <!-- In-App Browser detection (runs synchronously in head to prevent FOUC) -->
+    <script is:inline>
+      (function () {
+        try {
+          var params = new URLSearchParams(window.location.search);
+          var isInApp =
+            params.get('in_app') === 'true' ||
+            params.get('in_app') === '1' ||
+            params.get('app') === 'true';
+          if (isInApp) {
+            document.documentElement.classList.add('is-in-app');
+            // Retain query param on internal links within the in-app browser
+            window.addEventListener('DOMContentLoaded', function () {
+              document.querySelectorAll('a[href]').forEach(function (a) {
+                try {
+                  var href = a.getAttribute('href');
+                  if (
+                    !href ||
+                    href.startsWith('#') ||
+                    href.startsWith('mailto:') ||
+                    href.startsWith('tel:')
+                  ) {
+                    return;
+                  }
+                  var target = new URL(a.href, window.location.origin);
+                  if (
+                    target.origin === window.location.origin &&
+                    !target.searchParams.has('in_app')
+                  ) {
+                    target.searchParams.set('in_app', 'true');
+                    a.href = target.pathname + target.search + target.hash;
+                  }
+                } catch (_) {}
+              });
+            });
+          }
+        } catch (_) {}
+      })();
+    </script>
   </head>
   <body class="min-h-screen bg-white text-slate-900 antialiased">
     <slot />

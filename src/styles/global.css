@@ -17,3 +17,8 @@ html {
   background-color: #d1fae5;
   color: #064e3b;
 }
+
+/* In-App Browser mode */
+html.is-in-app [data-hide-in-app] {
+  display: none !important;
+}
