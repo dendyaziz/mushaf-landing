@@ -1,0 +1,27 @@
+{
+  "name": "Mushaf - Quran Indonesia",
+  "short_name": "Mushaf",
+  "description": "Aplikasi Al-Quran digital rasm Usmani standar Kemenag RI. Buka aplikasi langsung di ayat terakhir Anda, 100% offline tanpa kuota dan tanpa iklan.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#047857",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
+Sitemap: https://mushaf.web.id/sitemap-index.xml
 Sitemap: https://mushaf.web.id/sitemap.xml

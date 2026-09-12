@@ -4,12 +4,75 @@ import '../styles/global.css';
 interface Props {
   title?: string;
   description?: string;
+  image?: string;
+  type?: 'website' | 'article';
+  noindex?: boolean;
 }
 
 const {
   title = 'Mushaf - Quran Indonesia',
-  description = 'Aplikasi Al-Quran digital rasm Usmani standar Kemenag RI. Buka aplikasi langsung di ayat terakhir Anda, 100% offline tanpa kuota dan tanpa iklan.'
+  description = 'Aplikasi Al-Quran digital rasm Usmani standar Kemenag RI. Buka aplikasi langsung di ayat terakhir Anda, 100% offline tanpa kuota dan tanpa iklan.',
+  image = '/images/og-image.png',
+  type = 'website',
+  noindex = false,
 } = Astro.props;
+
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') || 'https://mushaf.web.id';
+const canonicalURL = new URL(Astro.url.pathname, siteUrl);
+const ogImageURL = new URL(image, siteUrl).href;
+
+const isHomePage = Astro.url.pathname === '/' || Astro.url.pathname === '';
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Mushaf",
+  "url": siteUrl,
+  "logo": `${siteUrl}/images/app_icon.png`,
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "bantuan@mushaf.web.id",
+    "contactType": "customer support"
+  }
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Mushaf",
+  "alternateName": ["Mushaf Quran Indonesia", "Mushaf App"],
+  "url": siteUrl,
+  "inLanguage": "id-ID",
+  "description": description
+};
+
+const mobileAppSchema = isHomePage ? {
+  "@context": "https://schema.org",
+  "@type": "MobileApplication",
+  "name": "Mushaf - Quran Indonesia",
+  "operatingSystem": "Android, iOS",
+  "applicationCategory": "BooksApplication",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "IDR"
+  },
+  "description": description,
+  "screenshot": `${siteUrl}/images/mushaf-on-iphone.webp`,
+  "image": `${siteUrl}/images/app_icon.png`,
+  "url": siteUrl,
+  "featureList": [
+    "Khat Rasm Usmani standar Kemenag RI",
+    "Lanjut baca otomatis dari ayat terakhir",
+    "100% Akses offline 30 juz tanpa kuota",
+    "Bebas iklan (tanpa iklan)"
+  ],
+  "author": {
+    "@type": "Organization",
+    "name": "Mushaf",
+    "url": siteUrl
+  }
+} : null;
 ---
 
 <!doctype html>
@@ -20,18 +83,52 @@ const {
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico?v=1" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
     <meta name="generator" content={Astro.generator} />
 
-    <!-- SEO & Metadata -->
+    <!-- Canonical & SEO Directives -->
+    <link rel="canonical" href={canonicalURL} />
+    <meta
+      name="robots"
+      content={noindex
+        ? "noindex, nofollow"
+        : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"}
+    />
+
+    <!-- Primary Metadata -->
     <title>{title}</title>
+    <meta name="title" content={title} />
     <meta name="description" content={description} />
     <meta name="theme-color" content="#047857" />
+
+    <!-- Open Graph / Facebook / WhatsApp / LinkedIn -->
+    <meta property="og:type" content={type} />
+    <meta property="og:site_name" content="Mushaf" />
+    <meta property="og:locale" content="id_ID" />
+    <meta property="og:url" content={canonicalURL.href} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://mushaf.web.id" />
-    <meta property="og:image" content="https://mushaf.web.id/images/mushaf-phone-transparent.png" />
+    <meta property="og:image" content={ogImageURL} />
+    <meta property="og:image:secure_url" content={ogImageURL} />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={title} />
+
+    <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL.href} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageURL} />
+    <meta name="twitter:image:alt" content={title} />
+
+    <!-- Structured Data (JSON-LD) -->
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+    {mobileAppSchema && (
+      <script is:inline type="application/ld+json" set:html={JSON.stringify(mobileAppSchema)} />
+    )}
 
     <!-- Google Fonts: Plus Jakarta Sans & Amiri Quran -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
